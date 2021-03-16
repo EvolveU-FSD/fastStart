@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simple Counter Example</title>
+    </head>
+    <body style="margin: 20px" onload="setIndexValue()">
+        <h1>A Simple Counter Demo</h1>
+
+        <div style="font-weight: bold; font-size: 14">Counter is currently:</div>
+        <div id="indexValue" style="padding-bottom: 20px; font-size: 14">--</div>
+
+        <input type="button" value="Increment" onclick="incrementIndexValue()"
+            style="background-color: blue; color: white; font-size: 14; font-weight: bold; height: 30px; width: 85px; border-radius: 8px; "
+        />
+    </body>
+</html>
+
+<script>
+    var indexValue = 3
+    function setIndexValue(){
+        console.log('setting index value')
+        const indexValueDiv = document.getElementById('indexValue')
+        indexValueDiv.innerHTML = indexValue
+    }
+    function incrementIndexValue(){
+        console.log('incrementing value from ', indexValue, 'to', indexValue+1)
+        indexValue++
+        setIndexValue()
+    }
+</script>
