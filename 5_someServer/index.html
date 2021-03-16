@@ -16,11 +16,17 @@
 </html>
 
 <script>
-    var indexValue = 3
     function setIndexValue(){
         console.log('setting index value')
-        const indexValueDiv = document.getElementById('indexValue')
-        indexValueDiv.innerHTML = indexValue
+        fetch('http://localhost:5150/index')
+            .then(function(response){
+                return response.text()
+            })
+            .then(function(responseText){
+                console.log('Receive index from server:', responseText)
+                const indexValueDiv = document.getElementById('indexValue')
+                indexValueDiv.innerHTML = +responseText
+            })
     }
     function incrementIndexValue(){
         console.log('incrementing value from ', indexValue, 'to', indexValue+1)
